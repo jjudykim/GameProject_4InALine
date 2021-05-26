@@ -37,13 +37,13 @@ public class GameHandler
     public void gameTiming()
     {
         // Game tick
-        /*try
+        try
         {
             Thread.sleep(50);
         }
         catch (InterruptedException ex) {
             ex.printStackTrace();
-        }*/
+        }
     }
 
     public void initData()
