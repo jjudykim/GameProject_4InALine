@@ -33,7 +33,6 @@ public class Game4InALine extends JFrame implements KeyListener
     public void replay()
     {
         handler.initData();
-        new Thread(new GameThread()).start();
     }
 
     class GameThread implements Runnable

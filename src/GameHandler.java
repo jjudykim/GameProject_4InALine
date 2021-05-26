@@ -192,10 +192,12 @@ public class GameHandler
                 break;
             }
         }
-        if(playerCheck() == 1) field[currentY][currentX] = 11;
-        else field[currentY][currentX] = 10;
-
-        gameCount++;
+        if(field[0][currentX] != 10 && field[0][currentX] != 11)
+        {
+            if(playerCheck() == 1) field[currentY][currentX] = 11;
+            else field[currentY][currentX] = 10;
+            gameCount++;
+        }
     }
 
     public void gameLogic()
