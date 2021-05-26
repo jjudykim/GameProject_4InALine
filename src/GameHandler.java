@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GameHandler
 {
-    private final int SCREEN_WIDTH = 33;
+    private final int SCREEN_WIDTH = 35;
     private final int SCREEN_HEIGHT = 20;
     private final int FIELD_WIDTH = 13;
     private final int FIELD_HEIGHT = 6;
@@ -37,13 +37,13 @@ public class GameHandler
     public void gameTiming()
     {
         // Game tick
-        try
+        /*try
         {
             Thread.sleep(50);
         }
         catch (InterruptedException ex) {
             ex.printStackTrace();
-        }
+        }*/
     }
 
     public void initData()
@@ -69,7 +69,7 @@ public class GameHandler
         }
         catch(FileNotFoundException e)
         {
-            previousScore = "│             │";
+            previousScore = "";
         }
         catch(IOException e)
         {
@@ -84,7 +84,7 @@ public class GameHandler
         try
         {
             out = new BufferedWriter(new FileWriter("previousScore.txt"));
-            out.write("│  ●:" + BlackScore + "   ○:" + WhiteScore + "  │");
+            out.write("●:" + BlackScore + "   ○:" + WhiteScore);
             out.close();
         }
         catch(IOException e)
@@ -153,6 +153,11 @@ public class GameHandler
     public boolean isGameOver()
     {
         return isGameOver;
+    }
+
+    public boolean getWinner()
+    {
+        return winner;
     }
 
     private int playerCheck()
@@ -269,15 +274,17 @@ public class GameHandler
     private void drawCurrentScore()
     {
         drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, -2, "┌───CURRENT───┐");
-        drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, -1, "│  ●:" + BlackScore + "   ○:" + WhiteScore + "  │");
+        drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, -1, "│             │");
         drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, 0, "└─────────────┘");
+        drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 5, -1, "●:" + BlackScore + "   ○:" + WhiteScore);
     }
 
     private void drawPreviousScore()
     {
         drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, 2, "┌───PREVIOUS──┐");
-        drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, 3, previousScore);
+        drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, 3, "│             │");
         drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 2, 4, "└─────────────┘");
+        drawToBuffer(FIELD_WIDTH + LEFT_PADDING + 5, 3, previousScore);
     }
 
     private void drawWinner()

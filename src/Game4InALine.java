@@ -69,14 +69,18 @@ public class Game4InALine extends JFrame implements KeyListener
                 handler.moveLeft();
                 break;
             case KeyEvent.VK_DOWN:
-                handler.moveDown();
+                if(!handler.getWinner()) handler.moveDown();
                 break;
             case KeyEvent.VK_Y:
-                replay();
+                if(handler.getWinner()) replay();
                 break;
             case KeyEvent.VK_N:
-                handler.writeScore();
-                System.exit(0);
+                if(handler.getWinner())
+                {
+                    handler.writeScore();
+                    System.exit(0);
+                }
+
                 break;
         }
     }
