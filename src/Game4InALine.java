@@ -58,6 +58,7 @@ public class Game4InALine extends JFrame implements KeyListener
     }
 
     // 2. Get Input --------------------------
+    @Override
     public void keyPressed(KeyEvent e)
     {
         switch(e.getKeyCode())
@@ -85,10 +86,12 @@ public class Game4InALine extends JFrame implements KeyListener
         }
     }
 
+    @Override
     public void keyTyped(KeyEvent e)
     {
     }
 
+    @Override
     public void keyReleased(KeyEvent e)
     {
     }
