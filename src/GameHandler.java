@@ -34,7 +34,7 @@ public class GameHandler
         initData();
     }
 
-    public void GameTiming()
+    public void gameTiming()
     {
         // Game tick
         try

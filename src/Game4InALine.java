@@ -46,7 +46,7 @@ public class Game4InALine extends JFrame implements KeyListener
             {
                 // 게임을 만들기 위한 4단계
                 // 1. Game Timing ------------------------
-                handler.GameTiming();
+                handler.gameTiming();
 
                 // 3. Game logic -------------------------
                 handler.gameLogic();
